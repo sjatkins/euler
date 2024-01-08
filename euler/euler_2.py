@@ -1,4 +1,4 @@
-from utils import take_while
+from euler.utils import take_while
 def fibs():
     a,b = 0,1
     while True:

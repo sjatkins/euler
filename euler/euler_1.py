@@ -21,10 +21,12 @@ def multi_mults_less(limit, *bases):
 def sum_multiples(limit, *bases):
     return sum(multi_mults_less(limit, *bases))
 
-def sum_3_5(limit):
-    return sum_multiples(limit, 3, 5)
+def multiple_sum_fn(*bases):
+    return lambda limit: sum_multiples(limit, *bases)
+
 
 def test_euler1():
+    sum_3_5 = multiple_sum_fn(3, 5)
     should_give = {49: 543, 1000:233168, 8456:16687353, 19564:89301183}
     for limit, expected in should_give.items():
         label = f'sum_3_5({limit}) should give {expected}'
